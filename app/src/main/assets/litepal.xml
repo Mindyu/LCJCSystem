@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <dbname value="lcjcsystem" ></dbname>
+
+    <version value="2" ></version>
+
+    <list>
+        <mapping class="com.tomatoLCJC.tools.dataBase.Bean.DeviceInfoBean"></mapping>
+        <mapping class="com.tomatoLCJC.tools.dataBase.Bean.HistoryDataRecordBean"></mapping>
+        <mapping class="com.tomatoLCJC.tools.dataBase.Bean.HistoryDataRecordDetailBean"></mapping>
+        <mapping class="com.tomatoLCJC.tools.dataBase.Bean.DeviceDetectionRecordBean"></mapping>
+    </list>
+
+</litepal>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eae9e9">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备校准"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+
+        <!--文本标签-->
+        <TextView
+            android:id="@+id/title_text_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="以20%缺陷端为起点，推动检测小车扫描标准缺陷钢板。扫描方向：从低到高。"
+            android:textColor="@color/black_text"
+            />
+
+        <!--文本标签-->
+        <TextView
+            android:id="@+id/title_text_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="以80%缺陷端为起点，推动检测小车扫描标准缺陷钢板。扫描方向：从高到低。"
+            android:textColor="@color/black_text"
+            android:visibility="gone"
+            />
+
+        <!--空白-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+        </LinearLayout>
+
+        <!--选择设备-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选 择 设 备 : "
+                android:textSize="18sp"
+                android:textColor="@color/black_text"
+                />
+            <Spinner
+                android:id="@+id/deviceSpinner"
+                android:background="@drawable/pane"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Spinner>
+
+        </LinearLayout>
+
+        <!--探头组数-->
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="探 头 组 数 : "
+                android:textSize="18sp"
+                android:textColor="@color/black_text"
+                />
+
+            <TextView
+                android:id="@+id/selectChaneel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9"
+                android:gravity="center_vertical"
+                android:background="@drawable/pane"
+                android:textColor="#3f3b3e"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+            <!--
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:background="#c7c7c7"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_select_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/strigon1" />
+
+            </LinearLayout>-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <!--图表-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="6"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="10dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+    </LinearLayout>
+
+    <!--分割线-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="#898888" />
+
+    <!--按钮布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y27"
+        android:orientation="horizontal"
+        android:background="#dcdcdc"
+        >
+        <!--开始按钮-->
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_text"
+            android:text="开始"
+            android:layout_weight="1"
+            android:background="#dcdcdc" />
+        <!-- 完成按钮-->
+        <Button
+            android:id="@+id/btnImport"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_text"
+            android:text="导入"
+            android:layout_weight="1"
+            android:background="#dcdcdc" />
+        <!-- 退出按钮-->
+        <Button
+            android:id="@+id/btnQuit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_text"
+            android:text="退出"
+            android:layout_weight="1"
+            android:background="#dcdcdc" />
+    </LinearLayout>
+
+</LinearLayout>

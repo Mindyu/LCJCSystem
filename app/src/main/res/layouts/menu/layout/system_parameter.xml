@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eae9e9">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:clipToPadding="false">
+        <ImageView
+            android:id="@+id/return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="系 统 参 数"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+        <TextView android:id="@+id/btn_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完 成"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="25dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1">
+
+        <TableRow  android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/menu_item_selector"
+                android:clickable="true" >
+                <TextView
+                    android:text=" 通道数量："
+                    android:textSize="18sp"
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/black_text"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.1" />
+                <TextView android:layout_weight="2.8"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal">
+                    <EditText android:id="@+id/channelCount"
+                              android:layout_height="wrap_content"
+                              android:layout_width="wrap_content"
+                              android:layout_gravity="center"
+                              android:gravity="center"
+                              android:layout_marginRight="25dp"
+                              android:inputType="number"
+                              android:text="12"
+                              android:textColor="@color/black_text"
+                              android:background="@drawable/sample_time"/>
+                </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black_text"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+        </TableRow>
+
+        <TableRow android:layout_column="2"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:background="@drawable/menu_item_selector"
+                android:clickable="true">
+                <TextView
+                    android:text=" 通道分量："
+                    android:textSize="18sp"
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/black_text"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.1"/>
+                <TextView android:layout_weight="2.8"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal">
+                <EditText android:id="@+id/channelWeight"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:gravity="center"
+                          android:layout_marginRight="25dp"
+                          android:inputType="number"
+                          android:text="1"
+                          android:textColor="@color/gray_divider"
+                          android:enabled="false"
+                          android:background="@drawable/sample_time"/>
+                </LinearLayout>
+
+
+        </TableRow>
+
+        <TableRow>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black_text"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+        </TableRow>
+
+        <TableRow android:layout_column="3"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:background="@drawable/menu_item_selector"
+                android:clickable="true">
+                <TextView android:text=" 通道间距："
+                    android:textSize="18sp"
+                    android:layout_marginLeft="26dp"
+                    android:textColor="@color/black_text"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="2.1"/>
+                <TextView android:layout_weight="2.8"
+                    android:layout_height="match_parent"
+                    android:layout_width="0dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.3"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal">
+                    <EditText   android:id="@+id/channelDistance"
+                          android:layout_height="wrap_content"
+                          android:layout_width="wrap_content"
+                          android:layout_gravity="center"
+                          android:gravity="center"
+                          android:layout_marginRight="25dp"
+                          android:inputType="number"
+                          android:text="9"
+                          android:textColor="@color/black_text"
+                          android:background="@drawable/sample_time"/>
+                </LinearLayout>
+
+
+        </TableRow>
+
+        <TableRow>
+            <View android:layout_width="match_parent"
+                  android:layout_height="1px"
+                  android:background="@color/black_text"
+                  android:layout_weight="1"
+                  android:layout_marginLeft="16dp"
+                  android:layout_marginRight="16dp"/>
+        </TableRow>
+
+        <TableRow android:layout_column="4"
+                  android:layout_width="match_parent"
+                  android:layout_weight="1"
+                  android:layout_height="0dp"
+                  android:background="@drawable/menu_item_selector"
+                  android:clickable="true">
+            <TextView android:text=" 通道步长："
+                      android:textSize="18sp"
+                      android:layout_marginLeft="26dp"
+                      android:textColor="@color/black_text"
+                      android:layout_gravity="center"
+                      android:layout_height="wrap_content"
+                      android:layout_width="0dp"
+                      android:layout_weight="2.1"/>
+            <TextView android:layout_weight="2.8"
+                      android:layout_height="match_parent"
+                      android:layout_width="0dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.3"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal">
+                <EditText   android:id="@+id/channelStep"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginRight="25dp"
+                            android:inputType="numberDecimal"
+                            android:text="0.942"
+                            android:textColor="@color/black_text"
+                            android:background="@drawable/sample_time"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow>
+            <View android:layout_width="match_parent"
+                  android:layout_height="1px"
+                  android:background="@color/black_text"
+                  android:layout_weight="1"
+                  android:layout_marginLeft="16dp"
+                  android:layout_marginRight="16dp"/>
+        </TableRow>
+
+        <TableRow android:layout_column="5"
+                  android:layout_width="match_parent"
+                  android:layout_weight="1"
+                  android:layout_height="0dp"
+                  android:background="@drawable/menu_item_selector"
+                  android:clickable="true">
+            <TextView android:text=" 横向间隔："
+                      android:textSize="18sp"
+                      android:layout_marginLeft="26dp"
+                      android:textColor="@color/black_text"
+                      android:layout_gravity="center"
+                      android:layout_height="wrap_content"
+                      android:layout_width="0dp"
+                      android:layout_weight="2.1"/>
+            <TextView android:layout_weight="2.8"
+                      android:layout_height="match_parent"
+                      android:layout_width="0dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.3"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal">
+                <EditText   android:id="@+id/stepInterval"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginRight="25dp"
+                            android:inputType="numberDecimal"
+                            android:text="1"
+                            android:textColor="@color/black_text"
+                            android:background="@drawable/sample_time"/>
+            </LinearLayout>
+
+
+        </TableRow>
+
+        <TableRow>
+                <View android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="@color/black_text"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"/>
+        </TableRow>
+
+        <TableRow android:layout_column="6"
+                android:layout_width="match_parent"
+                android:layout_weight="12"
+                android:layout_height="0dp"
+                android:background="@drawable/menu_item_selector">
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
+
+
+
+
+
+

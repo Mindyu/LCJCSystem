@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eae9e9">
+
+    <!-- 原始曲线 -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_margin="5dip"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/primary"
+                android:padding="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="去噪后曲线"
+                android:textColor="#686868"
+                android:textSize="@dimen/text_size_mid"
+                android:layout_marginTop="6dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/chart_1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:layout_margin="0dp"
+            >
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 通道按钮组-->
+    <LinearLayout
+        android:id="@+id/channelButtonGroupLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d8d8d8"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="30dp"
+        android:paddingRight="14dp"></LinearLayout>
+
+
+    <!-- 扫描图 -->
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_margin="5dip"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/horizontal_curve"
+                android:padding="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="扫描图"
+                android:textColor="#686868"
+                android:textSize="@dimen/text_size_mid"
+                android:layout_marginTop="6dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scan_chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            />
+
+    </LinearLayout>
+</LinearLayout>

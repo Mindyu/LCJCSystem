@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/activity_main_bottom"
+              android:background="#eae9e9"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--  生成报告，导出数据按钮布局-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp">
+        <ImageButton
+            android:id="@+id/btn_GeneratReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="65dp"
+            android:background="#eae8e9"
+            android:src="@drawable/report_normal"/>
+
+        <ImageButton
+            android:id="@+id/btn_ExportData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="65dp"
+            android:background="#eae8e9"
+            android:src="@drawable/export_normal"/>
+
+    </RelativeLayout>
+
+
+    <!--分割线-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="#898888" />
+
+    <!--按钮布局-->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#dcdcdc"
+        >
+        <!--开始按钮-->
+        <ImageButton
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:src="@drawable/start_normal"/>
+        <!-- 停止按钮-->
+        <ImageButton
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:src="@drawable/stop_normal"/>
+        <!--清屏按钮-->
+        <ImageButton
+            android:id="@+id/btnClean"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#dcdcdc"
+            android:src="@drawable/clean_normal"/>
+    </LinearLayout>
+
+</LinearLayout>

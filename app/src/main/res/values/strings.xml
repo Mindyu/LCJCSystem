@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">漏磁检测系统</string>
+    <string name="title_activity_main">漏磁检测系统</string>
+
+    <string-array name="lineColors">
+        <item>#015F08</item>
+        <item>#0030FF</item>
+        <item>#7103D8</item>
+        <item>#C00B93</item>
+        <item>#943E03</item>
+        <item>#389A02</item>
+        <item>#594EC0</item>
+        <item>#005C6D</item>
+        <item>#00095E</item>
+        <item>#474550</item>
+        <item>#5A0022</item>
+        <item>#454900</item>
+        <item>#391000</item>
+        <item>#6DB2C5</item>
+        <item>#BF7D00</item>
+    </string-array>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">@color/window_bg</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
+    </style>
+
+    <drawable name="clr_normal">#eae9e9</drawable>
+    <drawable name="clr_pressed">#dcbebe</drawable>
+
+</resources>

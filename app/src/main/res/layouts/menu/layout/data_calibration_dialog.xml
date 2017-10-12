@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="500dp"
+    android:layout_height="500dp">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设备校准数据核对"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:padding="10dp"
+        android:background="@drawable/menu_item_selector"
+        android:layout_weight="1"
+        >
+
+        <TableRow
+            android:layout_column="1"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="26dp"
+                android:layout_weight="1"
+                android:text="  厚  度："
+                android:textColor="@color/black_text"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/thickness_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="8"
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text=" mm"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_column="2"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="26dp"
+                android:layout_weight="1"
+                android:text="  提  离  值 ："
+                android:textColor="@color/black_text"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/uplift_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="3"
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <!--<TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_column="3"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="26dp"
+                android:layout_weight="1"
+                android:text=" 标准管直径："
+                android:textColor="@color/black_text"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/diameter_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>-->
+
+        <!--<TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_column="4"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="26dp"
+                android:layout_weight="1"
+                android:text="  材  质："
+                android:textColor="@color/black_text"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/material_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_column="5"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <EditText
+                android:id="@+id/flaw_value_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@color/black_text" />
+            <EditText
+                android:id="@+id/flaw_percent_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="20"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text=" %缺陷"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_column="6"
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector"
+            android:clickable="true">
+
+            <EditText
+                android:id="@+id/flaw_value_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="2"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@color/black_text" />
+            <EditText
+                android:id="@+id/flaw_percent_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/sample_time"
+                android:gravity="center"
+                android:inputType="number"
+                android:text="40"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text=" %缺陷"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+        android:layout_column="7"
+        android:layout_weight="1"
+        android:background="@drawable/menu_item_selector"
+        android:clickable="true">
+
+        <EditText
+            android:id="@+id/flaw_value_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="2"
+            android:background="@drawable/sample_time"
+            android:gravity="center"
+            android:inputType="number"
+            android:text=""
+            android:textColor="@color/black_text" />
+        <EditText
+            android:id="@+id/flaw_percent_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/sample_time"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="60"
+            android:textColor="@color/black_text" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text=" %缺陷"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+        <TableRow
+        android:layout_column="8"
+        android:layout_weight="1"
+        android:background="@drawable/menu_item_selector"
+        android:clickable="true">
+
+        <EditText
+            android:id="@+id/flaw_value_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="2"
+            android:background="@drawable/sample_time"
+            android:gravity="center"
+            android:inputType="number"
+            android:text=""
+            android:textColor="@color/black_text" />
+        <EditText
+            android:id="@+id/flaw_percent_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/sample_time"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="80"
+            android:textColor="@color/black_text" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text=" %缺陷"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+    </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <!--<TableRow
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_column="1"
+            android:layout_weight="8"
+            android:background="@drawable/menu_item_selector">
+        </TableRow>-->
+    </TableLayout>
+
+    <!--按钮布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y25"
+        android:orientation="horizontal"
+        android:background="#dcdcdc"
+        >
+        <!--开始按钮-->
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_text"
+            android:text="保存"
+            android:layout_weight="1"
+            android:background="#dcdcdc" />
+        <!-- 完成按钮-->
+        <Button
+            android:id="@+id/btn_cancle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_text"
+            android:text="取消"
+            android:layout_weight="1"
+            android:background="#dcdcdc"/>
+    </LinearLayout>
+
+</LinearLayout>
