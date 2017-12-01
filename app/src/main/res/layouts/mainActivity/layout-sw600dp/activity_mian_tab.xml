@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="75dp"
+    android:gravity="center"
+    android:background="#eae9e9"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_tab_datameasure"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/btn_magnetic_measurement"
+            android:layout_width="@dimen/x107"
+            android:layout_height="@dimen/y27"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_magnetic_measurement_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1.15"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/id_tab_historydata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/btn_history"
+            android:layout_width="@dimen/x107"
+            android:layout_height="@dimen/y27"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_history_normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"></LinearLayout>
+</LinearLayout>

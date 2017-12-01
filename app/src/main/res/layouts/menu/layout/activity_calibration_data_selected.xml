@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu_item_selector"
+    android:orientation="vertical"
+    tools:context="com.tomatoLCJC.main.CalibrationDataSelectedActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/top"
+                    android:background="@drawable/top_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:clipToPadding="false">
+        <ImageView
+            android:id="@+id/calibration_data_select_return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校准设备信息"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:padding="10dp"
+        android:background="@drawable/menu_item_selector"
+        android:layout_weight="0.6">
+
+        <TableRow
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="校准时间:"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:text="0000-00-00"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:text="设备名称:"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_deviceName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:text="X X"
+                android:textColor="@color/black_text"/>
+        </TableRow>
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="厚\t\t\t\t度:"
+                android:textColor="@color/black_text"/>
+
+            <TextView
+                android:id="@+id/select_thickness_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.4"
+                android:text="0.0"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.6"
+                android:text="mm"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="提  离  值:"
+                android:textColor="@color/black_text"/>
+
+            <TextView
+                android:id="@+id/select_uplift_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="0.4"
+                android:text="0.0"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.6"
+                android:text=""
+                android:textColor="@color/black_text" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:text="材\t\t\t\t质:"
+                android:textColor="@color/black_text"/>
+
+            <TextView
+                android:id="@+id/select_material_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/black_text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="通道数量:"
+                android:textColor="@color/black_text"/>
+
+            <TextView
+                android:id="@+id/select_probesNum"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="0"
+                android:textColor="@color/black_text" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector">
+
+            <TextView
+                android:id="@+id/defect_percent_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="--%缺陷:"
+                android:textAlignment="center"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_flaw_value_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="000.00"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:id="@+id/defect_percent_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="--%缺陷:"
+                android:textAlignment="center"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_flaw_value_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="000.00"
+                android:textColor="@color/black_text" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+        <TableRow
+            android:layout_weight="1"
+            android:background="@drawable/menu_item_selector">
+
+            <TextView
+                android:id="@+id/defect_percent_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="--%缺陷:"
+                android:textAlignment="center"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_flaw_value_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="000.00"
+                android:textColor="@color/black_text" />
+            <TextView
+                android:id="@+id/defect_percent_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="--%缺陷:"
+                android:textAlignment="center"
+                android:textColor="@color/black_text"/>
+            <TextView
+                android:id="@+id/select_flaw_value_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:text="000.00"
+                android:textColor="@color/black_text" />
+        </TableRow>
+
+        <TableRow>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@color/black_text" />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/calibration_device_chart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_weight="1"
+        android:background="@drawable/menu_item_selector"
+        android:orientation="horizontal"
+        android:paddingRight="10dp">
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="#898888" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y27"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/device_select_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="确认"
+            android:textColor="@color/black_text"
+            android:background="#dcdcdc"/>
+        <Button
+            android:id="@+id/device_cancel_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textColor="@color/black_text"
+            android:background="#dcdcdc"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@drawable/box"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RadioGroup
+        android:id="@+id/radio"
+        android:layout_margin="22.5dp"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbt_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#676767"
+            android:button="@drawable/detection_object_revise"
+            android:text="  一 般"/>
+
+        <RadioButton
+            android:id="@+id/rbt_bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#676767"
+            android:button="@drawable/detection_object_revise"
+            android:text="  严 重"/>
+
+        <RadioButton
+            android:id="@+id/rbt_terrible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="#676767"
+            android:button="@drawable/detection_object_revise"
+            android:text="  特 别 严 重"/>
+
+    </RadioGroup>
+
+</LinearLayout>

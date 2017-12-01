@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eae9e9">
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#676767"
+        android:dividerHeight="1px"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="#898888" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/y27"
+        android:layout_gravity="center"
+        android:background="#dcdcdc"
+        android:orientation="horizontal">
+
+        <com.tomatoLCJC.main.spinner.DialogSpinner
+            android:id="@+id/sp_year"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/year"
+            android:longClickable="false" />
+
+        <com.tomatoLCJC.main.spinner.DialogSpinner
+            android:id="@+id/sp_month"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/month"
+            android:longClickable="false" />
+
+        <com.tomatoLCJC.main.spinner.DialogSpinner
+            android:id="@+id/sp_day"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/day"
+            android:longClickable="false" />
+    </LinearLayout>
+</LinearLayout>

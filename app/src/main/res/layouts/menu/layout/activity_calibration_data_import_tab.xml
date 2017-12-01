@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.tomatoLCJC.main.CalibrationDataImportActivity"
+    android:weightSum="1">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/top"
+                    android:background="@drawable/top_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="75dp"
+                    android:clipToPadding="false">
+        <ImageView
+            android:id="@+id/return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="校准数据导入"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选取"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <!--列标题内容-->
+    <LinearLayout
+        android:id="@+id/lin_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="校准时间"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="厚度(mm)"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="提离值"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="材质"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="设备名称"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="通道数量"
+            android:textSize="15sp"
+            android:textColor="@color/black_text"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="#cccccc"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#cccccc"/>
+
+    <ListView
+        android:id="@+id/tab_list"
+        android:divider="#B4B3B3"
+        android:dividerHeight="1.0dip"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadingEdge="none"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbarStyle="outsideInset"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@color/gray_divider"
+        android:scrollbarSize="5dp"
+        android:overScrollMode="never"
+        android:layout_above="@+id/bottom_item"
+        android:layout_below="@+id/title"
+        android:layout_weight="0.60">
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eae9e9">
+
+    <RelativeLayout
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:fitsSystemWindows="true"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/menu_back"
+            android:layout_marginTop="8dp"
+            android:padding="6dp"
+            android:id="@+id/back"
+            android:layout_alignParentLeft="true">
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_activity_main"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(奥斯特)"
+            android:textColor="#686868"
+            android:textSize="@dimen/text_size_small"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="8dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/bigChart"
+        android:background="#eae9e9">
+    </LinearLayout>
+</LinearLayout>

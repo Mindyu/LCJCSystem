@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#fff">
+
+    <LinearLayout
+        android:layout_marginRight="25dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/send_from_qq"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/qq"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1b1a1a"
+            android:text="发送到QQ"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="25dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/send_from_weichat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/wechat"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF1B1A1A"
+            android:text="发送到微信"/>
+
+    </LinearLayout>
+
+</LinearLayout>

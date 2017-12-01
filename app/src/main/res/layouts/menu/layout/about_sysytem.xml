@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eae9e9">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@drawable/top_background"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:clipToPadding="false">
+        <ImageView
+            android:id="@+id/return_key"
+            android:padding="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/returnkey_white" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关 于 系 统"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+        <TextView android:id="@+id/btn_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完 成"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="25dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:textSize="24sp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="@string/app_name"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_gravity="center">
+
+            <TableRow android:padding="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="软件版本：" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="V1.0" />
+            </TableRow >
+            <TableRow android:padding="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="通道数量：" />
+
+                <TextView
+                    android:id="@+id/chaneel_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:gravity="right"
+                    android:textSize="18sp"
+                      />
+            </TableRow>
+            <TableRow android:padding="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="通道分量：" />
+
+                <TextView
+                    android:id="@+id/chaneel_fenl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:gravity="right"
+                    android:textSize="18sp"
+                     />
+            </TableRow>
+            <TableRow android:padding="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="通道间距：" />
+
+                <TextView
+                    android:id="@+id/chaneel_jian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:gravity="right"
+                    android:textSize="18sp"
+                     />
+            </TableRow>
+            <TableRow android:padding="5dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:textSize="18sp"
+                    android:text="仪器步长：" />
+
+                <TextView
+                    android:id="@+id/chaneel_step"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black_text"
+                    android:gravity="right"
+                    android:textSize="18sp"
+                     />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#DBDBDB"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ban"/>
+    </LinearLayout>
+</LinearLayout>

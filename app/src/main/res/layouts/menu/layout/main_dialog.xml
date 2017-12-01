@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:background="@drawable/popup">
+
+        <TextView
+            android:id="@+id/dialog_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="40dp"
+            android:gravity="center"
+            android:text="你要选择哪一个按钮呢？"
+            android:textColor="@color/dialog_text"
+            android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/goon_calibration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="22dp"
+            android:background="@drawable/btn_continue_normal"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/finish_calibration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="22dp"
+            android:background="@drawable/btn_finish_normal"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/cancle_calibration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="22dp"
+            android:background="@drawable/btn_cancel_normal"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>
