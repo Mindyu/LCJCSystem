@@ -343,6 +343,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                 } else {
                     m_vFragmentDataMeasure.chartView.resetAxis();
+                    m_vFragmentDataMeasure.scanView.resetAxis();
                     if (Math.abs(m_vFragmentDataMeasure.chartView.getxDistance()- 0.1) < 0.0001 &&
                             Math.abs(m_vFragmentDataMeasure.chartView.getxDistance() - 300) < 0.0001 &&
                             Math.abs(m_vFragmentDataMeasure.chartView.getY()) < 0.0001) {
