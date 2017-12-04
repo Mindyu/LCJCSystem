@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ScanningChart extends AbstractChartService {
 
+    //特有的属性
     private List<ArrayList<Float>> zList = new ArrayList<>();  // 缺陷等级
     private float probeDistance;
 

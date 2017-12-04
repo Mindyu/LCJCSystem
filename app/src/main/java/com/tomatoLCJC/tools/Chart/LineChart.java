@@ -224,11 +224,9 @@ public class LineChart extends AbstractChartService {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        Log.d("Scanning","执行onDraw");
 
         canvasWidth = canvas.getWidth();    // 得到画布宽度
         canvasHeight = canvas.getHeight();  // 得到画布高度
-        Log.d("Chart","canvasWidth="+canvasWidth+"   canvasHeight="+canvasHeight);
 
         // 绘制坐标轴
         drawAxis(canvas);
