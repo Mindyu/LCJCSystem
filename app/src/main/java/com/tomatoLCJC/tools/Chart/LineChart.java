@@ -198,8 +198,8 @@ public class LineChart extends AbstractChartService {
             for (int j=0; j< yList.get(showIDs.get(i)).size()-1; j++) {
                 paint.setColor(colors[showIDs.get(i)]);
 
-                if ((yList.get(showIDs.get(i)).get(j+1)-yList.get(showIDs.get(i)).get(j))<10&&(yList.get(showIDs.get(i)).get(j+1)-yList.get(showIDs.get(i)).get(j))>-10){
-                    paint.setStrokeWidth(4/yScale);
+                if ((yList.get(showIDs.get(i)).get(j+1)-yList.get(showIDs.get(i)).get(j))<15&&(yList.get(showIDs.get(i)).get(j+1)-yList.get(showIDs.get(i)).get(j))>-15){
+                    paint.setStrokeWidth(3/yScale);
                 }else {
                     paint.setStrokeWidth(3/xScale);
                 }

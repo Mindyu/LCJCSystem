@@ -14,8 +14,8 @@ import com.tomatoLCJC.usbutil.SerialPortOpe;
 public class ReadDataThread implements Runnable {
     ThreadParameter threadParameter;
     SerialPortOpe serialPortOpe;
-    final static int CURRENT_MAX_CHANEEL = 9;
-    public static boolean isPause = false;
+    final static int CURRENT_MAX_CHANEEL = 9;                           //当前设备最大通道数量：1+2+6 （1：标志位， 2：唯一判断位， 6：有效通道数量）
+    public static boolean isPause = false;                              //是否暂停
 
     public ReadDataThread(Context parentContext) {
         threadParameter = ThreadParameter.getInstance();                //获取线程参数类的对象

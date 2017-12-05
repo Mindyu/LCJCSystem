@@ -37,50 +37,40 @@ public class DataProcessThread implements Runnable {
         @Override
         public void run() {
             int flag;
-            while (threadParameter.threadFlag) {        //!isStop   //threadParameter.threadFlag
-                if (!ReadDataThread.isPause) {          //如果是暂停则等待1ms进入下一次循环
-                    if (ThreadParameter.getInstance().xList.size() != size) {   //长度不等，有位移数据
-                        size = ThreadParameter.getInstance().xList.size();
-                        Message message = new Message();
-                        message.what = 0;
-                        if (stopHandler != null) {
-                            stopHandler.sendMessage(message);                   //发送消息重绘进度条
-                        } else {
-                            detectionHandler.sendMessage(message);
-                        }
-                        try {                       //等待33ms
+            while (!ReadDataThread.isPause) {          //如果是暂停则等待1ms进入下一次循环
+                if (ThreadParameter.getInstance().xList.size() != size) {   //长度不等，有位移数据
+                    size = ThreadParameter.getInstance().xList.size();
+                    Message message = new Message();
+                    message.what = 0;
+                    if (stopHandler != null) {
+                        stopHandler.sendMessage(message);                   //发送消息重绘进度条
+                    } else {
+                        detectionHandler.sendMessage(message);
+                    }
+                    try {                       //等待33ms
+                        Thread.sleep(33);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {                        //330ms未获取到数据
+                    flag = 10;
+                    while (flag > 0) {          //当获取到数据时跳出循环。
+                        if (ThreadParameter.getInstance().xList.size() != size) break;
+                        try {
                             Thread.sleep(33);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    } else {                        //330ms未获取到数据
-                        flag = 10;
-                        while (flag > 0) {          //当获取到数据时跳出循环。
-                            if (ThreadParameter.getInstance().xList.size() != size) break;
-                            try {
-                                Thread.sleep(33);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            flag--;
-                        }
-                        if (flag == 0 && !ReadDataThread.isPause) {     //330ms未获取到数据
-                            Message message = new Message();
-                            message.what = 1;
-                            if (stopHandler != null) {
-                                stopHandler.sendMessage(message);       //发送消息结束重绘曲线图
-                            } else {
-                                detectionHandler.sendMessage(message);
-                            }
-//                        isStop = true;
-                        }
+                        flag--;
                     }
-                }else{
-                    try {
-                        Thread.sleep(1);
-                        break;
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                    if (flag == 0 && !ReadDataThread.isPause) {     //330ms未获取到数据
+                        Message message = new Message();
+                        message.what = 1;
+                        if (stopHandler != null) {
+                            stopHandler.sendMessage(message);       //发送消息结束重绘曲线图
+                        } else {
+                            detectionHandler.sendMessage(message);
+                        }
                     }
                 }
             }
@@ -117,7 +107,7 @@ public class DataProcessThread implements Runnable {
         while (threadParameter.threadFlag) {
             if (!ReadDataThread.isPause) {                             //如果是暂停则等待1ms进入下一次循环
                 int index = threadParameter.readDataIndex;             //当前从缓冲队列中取出数据对应的下标值
-//               FileHelper.writeString(String.valueOf(index)+" ");
+                //FileHelper.writeString(String.valueOf(index)+" ");
                 int size = systemParameter.nChannelNumber + 2;
                 if (!threadParameter.bNewSegmentData[(index + 2 * size) % threadParameter.MAX_SEGMENT]) {       //如果当前size组数据不是最新的
                     continue;
@@ -146,7 +136,7 @@ public class DataProcessThread implements Runnable {
     private void dataAnalyzeWithEncoder(int[] aGroupChannelData) {
         double firstSensorValue = (aGroupChannelData[0] * 5000.0 / 32768);      //第一个位移传感器的值     *(5000.0 / 32768)
         double secondSensorValue = (aGroupChannelData[1] * 5000.0 / 32768);     //第二个位移传感器的值
-//        FileHelper.writeString(String.valueOf(firstSensorValue)+" "+String.valueOf(secondSensorValue)+"\n");
+        //FileHelper.writeString(String.valueOf(firstSensorValue)+" "+String.valueOf(secondSensorValue)+"\n");
         if (preVoltShiftData > threadParameter.nMaxThreshold && firstSensorValue < threadParameter.nMinThreshold && secondSensorValue > threadParameter.nMaxThreshold) {
             shiftStatus = 1;    // 开始前进(第1个传感器从高电平变为低电平，而此时第2个传感器处于高电平)
         } else if (preVoltShiftData > threadParameter.nMaxThreshold && firstSensorValue < threadParameter.nMinThreshold && secondSensorValue < threadParameter.nMinThreshold) {
@@ -157,8 +147,8 @@ public class DataProcessThread implements Runnable {
             shiftStatus = 4;    // 后退结束(第1个传感器从低电平变为高电平，而此时第2个传感器处于高电平)
         }
         preVoltShiftData = firstSensorValue;                                     //保留第1个位移传感器的值
-//        FileHelper.writeString(" ShiftStatus "+String.valueOf(shiftStatus)+" \n");
-        if (shiftStatus != 0) {  //如果不是静止状态
+        //FileHelper.writeString(" ShiftStatus "+String.valueOf(shiftStatus)+" \n");
+        if (shiftStatus != 0) { // 如果不是静止状态
             if (count < 100 && (shiftStatus == 1 || shiftStatus == 2)) {         //最多取100数据做平均
                 for (int i = 0; i < systemParameter.nChannelNumber; i++) {
                     nTempList.get(i).add(Double.valueOf(aGroupChannelData[i + 2]));
@@ -199,10 +189,6 @@ public class DataProcessThread implements Runnable {
                     stepCount++;            //步数加1
                     threadParameter.xList.add(stepCount * SystemParameter.getInstance().disSensorStepLen / 1000);
                     count = 0;
-                    if (hasData == null&&!ReadDataThread.isPause) {
-                        hasData = new Thread(new MyReprintThread());
-                        hasData.start();
-                    }
                 } else {                    //后退一格，擦除一个数据，曲线向后走一格
                     int size = threadParameter.xList.size();
                     if (size > 0) {
@@ -218,6 +204,10 @@ public class DataProcessThread implements Runnable {
                         stepCount--;                    //步数减1
                     }
                     count = 0;
+                }
+                if (hasData == null&&!ReadDataThread.isPause) {
+                    hasData = new Thread(new MyReprintThread());
+                    hasData.start();
                 }
                 shiftStatus = 0;                        //将状态置初始值
             }
