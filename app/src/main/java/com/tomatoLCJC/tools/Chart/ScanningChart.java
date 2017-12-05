@@ -89,7 +89,7 @@ public class ScanningChart extends AbstractChartService {
         canvasHeight -= 140f;
         canvas.translate(110f, canvasHeight + 40f);     // 使画布向 x 轴正向移动 110f，向 y 轴移动 40f
         canvas.drawLine(0, 0, canvasWidth, 0, paint);   // 绘制 x 轴
-        canvas.drawLine(0, -canvasHeight, 0, 0, paint);  // 绘制 y 轴
+        canvas.drawLine(0, 0, 0,-canvasHeight, paint);  // 绘制 y 轴
     }
 
     @Override
@@ -102,11 +102,11 @@ public class ScanningChart extends AbstractChartService {
         canvas.save();  // 保存画布状态
         canvas.clipRect(0, 0, canvasWidth, 60f);                   // 切割画布，使坐标显示在一定范围内
         canvas.translate((1 - xScale) / 2 * canvasWidth, 0);       // 缩放时，平移使得与折线图一致
-        canvas.translate(xTranslate * xScale, 0);                  // 使坐标跟着图形一起平移
+        canvas.translate(xTranslate, 0);                  // 使坐标跟着图形一起平移
 
         float interval = measureInterval(xDistance/xScale);        //每组值得间隔
         int n = (int) Math.ceil((xDistance/xScale)/interval);      //一组有几个值
-        int first = (int) Math.floor((xStart-xDistance/xScale/2*(1-xScale)-xTranslate/canvasWidth*xDistance)/interval);
+        int first = (int) Math.floor((xStart-((1-xScale)/2+xTranslate/canvasWidth)*xDistance/xScale)/interval);
         for (int i = 0; i <= n; i++){
             if (interval < 0.01){
                 number = df3.format((first+i)*interval);
@@ -128,19 +128,23 @@ public class ScanningChart extends AbstractChartService {
         canvas.restore();   // 使画布返回上一个状态
 
         // 绘制 y 轴坐标
-        canvas.save();  // 保存画布状态
-        canvas.clipRect(-110f, -canvasHeight, 0, 0);      // 切割画布，使坐标显示在一定范围内
-        canvas.translate(0, (1 - yScale) / 2 * canvasHeight);    // 缩放时平移使得与折线图一致
-        canvas.translate(0, yTranslate * yScale - yStart);        // 使坐标跟着图形一起平移
-        for (int i = 10; i > -30; i--) {
-            canvas.drawLine(-10f, canvasHeight * i / yDistance * yScale,
-                    0f, canvasHeight * i / yDistance * yScale,paint);
+        canvas.save();                                                   // 保存画布状态
+        canvas.clipRect(-110f, -canvasHeight, 0, 0);                     // 切割画布，使坐标显示在一定范围内
+        canvas.translate(0, -(1 - yScale) / 2 * canvasHeight);           // 缩放时平移使得与折线图一致
+        canvas.translate(0, yTranslate);                                 // 使坐标跟着图形一起平移
+        interval = 1;                                                    // 相邻值的间隔
+        n = (int) Math.ceil((yDistance/yScale)/interval);                // 一组有几个值
+        first = - Math.round((yDistance/yScale/2*(1-yScale)-yTranslate/yScale/canvasHeight*yDistance));
+        for (int i = 0; i <n; i++) {
+            canvas.drawLine(-10f, -(canvasHeight * (first+i) * interval / yDistance * yScale),
+                    0f, -(canvasHeight * (first+i) * interval / yDistance * yScale),paint);
             canvas.drawText(
-                    String.valueOf(-i),
+                    String.valueOf(first+i),
                     -5f,
-                    canvasHeight * i / yDistance * yScale-4,
+                    -(canvasHeight * (first+i) * interval / yDistance * yScale)-4,
                     paint);
         }
+
         canvas.restore();   // 使画布返回上一个状态
     }
 
@@ -149,10 +153,10 @@ public class ScanningChart extends AbstractChartService {
         // 裁切矩形，把画面控制在坐标平面内
         canvas.clipRect(0, 0, canvasWidth, -canvasHeight);
         // 手势缩放移动
-        canvas.translate(xTranslate, yTranslate);
-        float px = (canvasWidth / 2 - xTranslate);
-        float py = (-canvasHeight / 2 - yTranslate);
-        canvas.scale(xScale, yScale, px, py);
+        canvas.translate(xTranslate/xScale, yTranslate/yScale);
+        float px = (canvasWidth / 2 - xTranslate/xScale);
+        float py = (canvasHeight / 2 + yTranslate/yScale);
+        canvas.scale(xScale, yScale, px, -py);               //以图的中心点缩放
         // 绘制底色
         paint.setColor(Color.rgb(203, 149, 128));
         if (xList.get(xList.size() - 1) < 0.2)
