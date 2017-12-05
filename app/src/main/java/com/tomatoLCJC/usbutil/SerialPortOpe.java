@@ -18,10 +18,10 @@ public class SerialPortOpe {
     private Context mContext=null;
 
     //辅助变量
-    private int DevCount = -1;//存储设备数量
-    private int currentIndex = -1;//通过判断currentIndex和openIndex是否相等来判断串口是否打开
-    private int openIndex = 0;    //打开设备的下标
-    private boolean ifConfigured=false;//是否配置的标记
+    private int DevCount = -1;              // 存储设备数量
+    private int currentIndex = -1;          // 通过判断currentIndex和openIndex是否相等来判断串口是否打开
+    private int openIndex = 0;              // 打开设备的下标
+    private boolean ifConfigured=false;     // 是否配置的标记
 
     private String TAG="SerialPortOpe";
 
@@ -93,7 +93,7 @@ public class SerialPortOpe {
     */
     public boolean initDevice() {
         if (DevCount <= 0) {
-            DevCount=getDeviceCount();//更新设备数
+            DevCount=getDeviceCount();      // 更新设备数
             createDeviceList();
             return false;
         }else {
@@ -118,10 +118,10 @@ public class SerialPortOpe {
             if (ftDev.isOpen()) {
                 currentIndex = openIndex;
                 synchronized(ftDev) {
-                    ftDev.resetDevice(); // 清空设备缓存中的数据
+                    ftDev.resetDevice();        // 清空设备缓存中的数据
                 }
                 if (ifConfigured == false) {
-                    DeviceInfo deviceInfo = DeviceInfo.getDeviceInfoInstance(); //获取系统参数对象
+                    DeviceInfo deviceInfo = DeviceInfo.getDeviceInfoInstance();     // 获取系统参数对象
                     setConfig(deviceInfo.BAUDRATE, deviceInfo.DATABIT, deviceInfo.STOPBIT, deviceInfo.PARITY, deviceInfo.FLOWCONTROL);//为设备设置设备参数
                     ifConfigured = true;
                 }

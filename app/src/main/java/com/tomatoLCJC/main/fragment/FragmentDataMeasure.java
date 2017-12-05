@@ -37,7 +37,7 @@ public class FragmentDataMeasure extends Fragment {
     private PopupWindow     mPopupWindow;                   // 弹出窗
     public  LineChart       chartView;                      // 折线图的 view
     public  ScanningChart   scanView;                       // 扫描图的 view
-    private float smallChartWidth,smallChartHeight;           // 小图的画布大小
+    private float smallChartWidth,smallChartHeight;         // 小图的画布大小
 
     // 单例模式
     private static FragmentDataMeasure fragmentDataMeasure = new FragmentDataMeasure();

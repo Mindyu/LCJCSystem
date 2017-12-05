@@ -40,7 +40,7 @@ import java.util.List;
  * 地磁场校准页面
  */
 public class DeviceCalibrationActivity extends Activity {
-    private SerialPortOpe serialPortOpe=null;//串口操作工具类
+    private SerialPortOpe serialPortOpe=null;       //串口操作工具类
 
     private LineChart lineChart;
     private LinearLayout chartLayout;
@@ -55,7 +55,7 @@ public class DeviceCalibrationActivity extends Activity {
     private TextView selectDevice;
     private DeviceDetectionRecordBean bean;
     private List<ArrayList<Point>> points = new ArrayList<>();
-    private ProgressDialog myDialog_1;    //数据采集中的进度条
+    private ProgressDialog myDialog_1;              //数据采集中的进度条
 
     class MyThread implements Runnable{
         @Override
@@ -84,18 +84,18 @@ public class DeviceCalibrationActivity extends Activity {
             lineChart.drawCalibrationView(ThreadParameter.getInstance().xList,ThreadParameter.getInstance().denoisingValue, tempPoint1);
             points.add(null);   points.add(null);  //先初始化两个point
             if (tempPoint.size() >= 4){
-                if (tempPoint.get(0).getX()>tempPoint.get(1).getX() ){   //正向的扫描  20-40-60-80
+                if (tempPoint.get(0).getX()>tempPoint.get(1).getX() ){               //正向的扫描  20-40-60-80
                     points.set(0,(ArrayList<Point>) tempPoint);
-                    Message msg=new Message();                                               //发送消息完成重绘
+                    Message msg=new Message();                                       //发送消息完成重绘
                     msg.what=2;
                     handler.sendMessage(msg);
                 }else if (tempPoint.get(0).getX()<tempPoint.get(1).getX()){
                     points.set(1,(ArrayList<Point>) tempPoint);
-                    Message msg=new Message();                                               //发送消息完成重绘
+                    Message msg=new Message();                                       //发送消息完成重绘
                     msg.what=2;
                     handler.sendMessage(msg);
                 }else {
-                    Message msg=new Message();    //校准方向有误，请再次校准！
+                    Message msg=new Message();      //校准方向有误，请再次校准！
                     msg.what=3;
                     handler.sendMessage(msg);
                 }
@@ -107,7 +107,7 @@ public class DeviceCalibrationActivity extends Activity {
             }
             /* //固定校准方向
             if (tempPoint.size() >= 4){
-                if (tempPoint.get(0).getX()>tempPoint.get(1).getX() && points.size()==0){   //正向的扫描
+                if (tempPoint.get(0).getX()>tempPoint.get(1).getX() && points.size()==0){    //正向的扫描
                     points.add((ArrayList<Point>) tempPoint);
                     Message msg=new Message();                                               //发送消息完成重绘
                     msg.what=2;
@@ -118,7 +118,7 @@ public class DeviceCalibrationActivity extends Activity {
                     msg.what=2;
                     handler.sendMessage(msg);
                 }else {
-                    Message msg=new Message();    //校准方向有误，请再次校准！
+                    Message msg=new Message();                  //校准方向有误，请再次校准！
                     msg.what=3;
                     handler.sendMessage(msg);
                 }
@@ -128,7 +128,7 @@ public class DeviceCalibrationActivity extends Activity {
                 msg.what=4;
                 handler.sendMessage(msg);
             }*/
-            ThreadParameter.getInstance().clearXAndYList();    //清除数据，以便下一次校准
+            ThreadParameter.getInstance().clearXAndYList();         //清除数据，以便下一次校准
         }
     }
 
@@ -140,7 +140,7 @@ public class DeviceCalibrationActivity extends Activity {
                 myDialog_1.setProgress(0);
                 myDialog_1.dismiss();
                 //数据完成获取
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
+                serialPortOpe.stopReciveData();                       //停止接收数据，关闭设备
                 ThreadParameter.getInstance().threadFlag = false;     //停止线程
                 //绘制图线线程
                 new Thread(new MyThread()).start();
@@ -246,14 +246,14 @@ public class DeviceCalibrationActivity extends Activity {
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                     /**********线程参数得清空（当数据保存后）***********/
                     ThreadParameter.getInstance().clearXAndYList();
-                    ThreadParameter.getInstance().initThreadParameter();//初始化参数
-                    ThreadParameter.getInstance().ifHaveEncoder = true;//以有位移的方式处理数据
-                    ThreadParameter.getInstance().threadFlag = true;   //打开线程开关
+                    ThreadParameter.getInstance().initThreadParameter();    //初始化参数
+                    ThreadParameter.getInstance().ifHaveEncoder = true;     //以有位移的方式处理数据
+                    ThreadParameter.getInstance().threadFlag = true;        //打开线程开关
                     ReadDataThread readDataThread = new ReadDataThread(getApplicationContext());
                     ReadDataThread.isPause = false;
-                    new Thread(readDataThread).start();            //启动读数据线程
+                    new Thread(readDataThread).start();                     //启动读数据线程
                     DataProcessThread dataProcessThread = new DataProcessThread(handler, 1);
-                    new Thread(dataProcessThread).start();         //启动数据处理线程
+                    new Thread(dataProcessThread).start();                  //启动数据处理线程
                 }
             }
         });
@@ -271,8 +271,8 @@ public class DeviceCalibrationActivity extends Activity {
         btnQuit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag=false;     //停止线程
+                serialPortOpe.stopReciveData();                             //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag=false;             //停止线程
                 ThreadParameter.getInstance().clearXAndYList();
                 finish();
             }

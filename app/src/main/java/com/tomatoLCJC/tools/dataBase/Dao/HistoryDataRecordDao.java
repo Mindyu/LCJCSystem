@@ -48,10 +48,10 @@ public class HistoryDataRecordDao {
                        List<ArrayList<Double>> detectionValue,List<ArrayList<Double>> denoisingValue,List<ArrayList<Double>> flawValue) {
         historyDataRecordBean.save();
         long recordId = historyDataRecordBean.getId();
-        int channelCount = SystemParameter.getInstance().nChannelNumber;//插入这里取系统的通道数
+        int channelCount = SystemParameter.getInstance().nChannelNumber;        // 插入这里取系统的通道数
         SQLiteDatabase database = LitePal.getDatabase();
         try {
-            database.beginTransaction();   //开始事务
+            database.beginTransaction();                                        // 开始事务
             for (int i = 0,length= xList.size()*yList.size();i <length; i++) {
                 HistoryDataRecordDetailBean historyDataRecordDetailBean = new HistoryDataRecordDetailBean();
                 historyDataRecordDetailBean.setRecordId(recordId);
@@ -63,9 +63,9 @@ public class HistoryDataRecordDao {
                 historyDataRecordDetailBean.setDetectionValue(detectionValue.get(i%channelCount).get(i/channelCount));
                 historyDataRecordDetailBean.setDenoisingValue(denoisingValue.get(i%channelCount).get(i/channelCount));
                 historyDataRecordDetailBean.setFlawValue(flawValue.get(i%channelCount).get(i/channelCount));
-                HistoryDataRecordDetailDao.getInstance().save(historyDataRecordDetailBean);//保存到数据库
+                HistoryDataRecordDetailDao.getInstance().save(historyDataRecordDetailBean);     // 保存到数据库
             }
-            database.setTransactionSuccessful();//提交事务
+            database.setTransactionSuccessful();                                                // 提交事务
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -189,11 +189,11 @@ public class HistoryDataRecordDao {
      ******************************************************************/
     public Map<String, ArrayList<ArrayList<Double>>> queryRecordDetailByRecordID(long recordID,int channelNum){
         Map<String, ArrayList<ArrayList<Double>>> map = new HashMap<>();
-        ArrayList<ArrayList<Double>>  xList = new ArrayList<ArrayList<Double>>();//存储横坐标
-        ArrayList<ArrayList<Double>>  yList = new ArrayList<ArrayList<Double>>();//存储纵坐标
-        ArrayList<ArrayList<Double>>  detectionValue = new ArrayList<ArrayList<Double>>();//存储横坐标
-        ArrayList<ArrayList<Double>>  denoisingValue = new ArrayList<ArrayList<Double>>();//存储纵坐标
-        ArrayList<ArrayList<Double>>  flawValue = new ArrayList<ArrayList<Double>>();//存储横坐标
+        ArrayList<ArrayList<Double>>  xList = new ArrayList<ArrayList<Double>>();           // 存储横坐标
+        ArrayList<ArrayList<Double>>  yList = new ArrayList<ArrayList<Double>>();           // 存储纵坐标
+        ArrayList<ArrayList<Double>>  detectionValue = new ArrayList<ArrayList<Double>>();  // 存储横坐标
+        ArrayList<ArrayList<Double>>  denoisingValue = new ArrayList<ArrayList<Double>>();  // 存储纵坐标
+        ArrayList<ArrayList<Double>>  flawValue = new ArrayList<ArrayList<Double>>();       // 存储横坐标
         //初始化xList和yList
         xList.add(new ArrayList<Double>());
         for(int i=0;i<channelNum;i++){
@@ -208,7 +208,7 @@ public class HistoryDataRecordDao {
             for (int i = 0, length = detailBeenList.size(); i < length; i++) {
                 HistoryDataRecordDetailBean bean = detailBeenList.get(i);
                 if (i%channelNum==0){
-                    xList.get(0).add(bean.getValue_x());//保存横坐标
+                    xList.get(0).add(bean.getValue_x());                // 保存横坐标
                 }
                 yList.get(i%channelNum).add(bean.getValue_y());
                 detectionValue.get(i%channelNum).add(bean.getDetectionValue());
@@ -218,11 +218,11 @@ public class HistoryDataRecordDao {
         } catch(Exception e){
             e.printStackTrace();
         }
-        map.put("X",xList);//存储横坐标
-        map.put("Y",yList);//存储纵坐标
-        map.put("DV",detectionValue);//存储检测值
-        map.put("DSV",denoisingValue);//存储去噪值
-        map.put("FV",flawValue);//存储缺陷值
+        map.put("X",xList);                     // 存储横坐标
+        map.put("Y",yList);                     // 存储纵坐标
+        map.put("DV",detectionValue);           // 存储检测值
+        map.put("DSV",denoisingValue);          // 存储去噪值
+        map.put("FV",flawValue);                // 存储缺陷值
         return map;
     }
 

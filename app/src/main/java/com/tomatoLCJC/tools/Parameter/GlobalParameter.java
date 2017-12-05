@@ -12,7 +12,7 @@ import com.tomatoLCJC.main.R;
 public class GlobalParameter {
 
     private String[] lineColors;
-    private int[] colors = new int[16];
+    private int[] colors = new int[16];                 //颜色值
     private static GlobalParameter globalParameter;
 
     public GlobalParameter(){
@@ -22,6 +22,7 @@ public class GlobalParameter {
         }
     }
 
+    // 单例模式，获取全局信息
     public static GlobalParameter getInstance(){
         if (globalParameter==null){
             globalParameter = new GlobalParameter();

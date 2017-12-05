@@ -34,7 +34,7 @@ public class SecondFragmentDataMeasure extends Fragment {
     private LinearLayout ChannelButtonLayout;           //存放通道选择按钮的布局容器
     private LinearLayout bigChartLayout;                //放大图表的布局
     private PopupWindow  mPopupWindow;                  //弹出窗
-    private float smallChartWidth,smallChartHeight;           // 小图的画布大小
+    private float smallChartWidth,smallChartHeight;     // 小图的画布大小
 
     private TextView     primary_curve;
     private TextView     portait_curve;

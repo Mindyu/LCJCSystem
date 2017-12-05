@@ -10,33 +10,33 @@ import org.litepal.crud.DataSupport;
  * 设备校准记录
  */
 public class DeviceDetectionRecordBean extends DataSupport {
-    private long id;// 校准编号
-    private long deviceID;// 设备ID
-    private String deviceName;// 设备名称
-    private String detectionTime;//检测时间
-    private int channelCount;// 通道数量
-    private int channelWeight;// 通道分量
-    private int channelDistance;// 通道间距
-    private double stepDistance;// 步长
-    private String steelTexture;//材质
-    private double steelThickness;//厚度
-    private double upliftValue;//提离值
-    private double defectThreshold;//缺陷阈值
-    private double defectPercent1;//缺陷百分比1
-    private double defectPercent1_x;//缺陷百分比1x坐标
-    private double defectPercent1_value;//缺陷百分比1去噪值
-    private double defectPercent2;//缺陷百分比2
-    private double defectPercent2_x;//缺陷百分比2x坐标
-    private double defectPercent2_value;//缺陷百分比2去噪值
-    private double defectPercent3;//缺陷百分比3
-    private double defectPercent3_x;//缺陷百分比3x坐标
-    private double defectPercent3_value;//缺陷百分比3去噪值
-    private double defectPercent4;//缺陷百分比4
-    private double defectPercent4_x;//缺陷百分比4x坐标
-    private double defectPercent4_value;//缺陷百分比4去噪值
-    private double value_a;    //y=ax^2+bx
+    private long id;                        // 校准编号
+    private long deviceID;                  // 设备ID
+    private String deviceName;              // 设备名称
+    private String detectionTime;           // 检测时间
+    private int channelCount;               // 通道数量
+    private int channelWeight;              // 通道分量
+    private int channelDistance;            // 通道间距
+    private double stepDistance;            // 步长
+    private String steelTexture;            //材质
+    private double steelThickness;          //厚度
+    private double upliftValue;             //提离值
+    private double defectThreshold;         //缺陷阈值
+    private double defectPercent1;          //缺陷百分比1
+    private double defectPercent1_x;        //缺陷百分比1x坐标
+    private double defectPercent1_value;    //缺陷百分比1去噪值
+    private double defectPercent2;          //缺陷百分比2
+    private double defectPercent2_x;        //缺陷百分比2x坐标
+    private double defectPercent2_value;    //缺陷百分比2去噪值
+    private double defectPercent3;          //缺陷百分比3
+    private double defectPercent3_x;        //缺陷百分比3x坐标
+    private double defectPercent3_value;    //缺陷百分比3去噪值
+    private double defectPercent4;          //缺陷百分比4
+    private double defectPercent4_x;        //缺陷百分比4x坐标
+    private double defectPercent4_value;    //缺陷百分比4去噪值
+    private double value_a;                 //y=ax^2+bx
     private double value_b;
-    private double value_c;    //y=cx^2+dx+e
+    private double value_c;                 //y=cx^2+dx+e
     private double value_d;
     private double value_e;
     private int status;

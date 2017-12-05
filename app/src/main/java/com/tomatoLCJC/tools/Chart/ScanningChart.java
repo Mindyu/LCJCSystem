@@ -20,7 +20,7 @@ public class ScanningChart extends AbstractChartService {
 
     //特有的属性
     private List<ArrayList<Float>> zList = new ArrayList<>();  // 缺陷等级
-    private float probeDistance;
+    private float probeDistance;                               // 通道间距
 
     public ScanningChart(Context context) {
         super(context);
@@ -52,6 +52,7 @@ public class ScanningChart extends AbstractChartService {
         initPaints();   // 初始化画笔
     }
 
+    //初始化数据
     public void drawView(List<Double> xs, List<ArrayList<Double>> ys, List<ArrayList<Double>> zs){
         xList.clear();yList.clear();yList.clear();
         for (int i = 0; i < ys.size(); i++) {
@@ -71,6 +72,7 @@ public class ScanningChart extends AbstractChartService {
         initPaints();                                       // 初始化画笔
     }
 
+    //初始化画笔
     @Override
     public void initPaints() {
         if (paint == null) {
@@ -83,6 +85,7 @@ public class ScanningChart extends AbstractChartService {
         paint.setAntiAlias(true);               // 设置是否使用抗锯齿功能，会消耗较大资源，绘制图形速度会变慢。
     }
 
+    //绘制坐标线
     @Override
     public void drawAxis(Canvas canvas) {
         canvasWidth -= 140f;        //留有边距
@@ -92,6 +95,7 @@ public class ScanningChart extends AbstractChartService {
         canvas.drawLine(0, 0, 0,-canvasHeight, paint);  // 绘制 y 轴
     }
 
+    //绘制坐标值及刻度
     @Override
     public void drawCoordinates(Canvas canvas) {
         String number;
@@ -148,6 +152,7 @@ public class ScanningChart extends AbstractChartService {
         canvas.restore();   // 使画布返回上一个状态
     }
 
+    //绘制扫描图
     @Override
     public void drawAction(Canvas canvas) {
         // 裁切矩形，把画面控制在坐标平面内
@@ -200,6 +205,7 @@ public class ScanningChart extends AbstractChartService {
         }
     }
 
+    //重写绘制方法
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

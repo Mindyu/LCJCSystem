@@ -19,7 +19,7 @@ import java.util.List;
 
 public class LineChart extends AbstractChartService {
 
-    private List<Point> points;     //校准曲线的四个点（只有校准的时候会用到）
+    private List<Point> points;     //校准曲线的四个点<校准专用>
 
     public LineChart(Context context) {
         super(context);
@@ -53,6 +53,7 @@ public class LineChart extends AbstractChartService {
         initPaints();   // 初始化画笔
     }
 
+    //初始化数据
     public void drawView(List<Double> xs, List<ArrayList<Double>> ys){
         xList.clear();yList.clear();showIDs.clear();
         for(int i=0;i<ys.size();i++){
@@ -78,11 +79,13 @@ public class LineChart extends AbstractChartService {
         initPaints();
     }
 
+    //绘制校准模块时的数据<校准专用>
     public void drawCalibrationView(List<Double> xs, List<ArrayList<Double>> ys, List<Point> points){
         drawView(xs, ys);
         this.points = points;
     }
 
+    //初始化画笔
     @Override
     public void initPaints() {
         if (paint == null) {
@@ -95,6 +98,7 @@ public class LineChart extends AbstractChartService {
         paint.setAntiAlias(true);               // 设置是否使用抗锯齿功能，会消耗较大资源，绘制图形速度会变慢。
     }
 
+    //绘制坐标线
     @Override
     public void drawAxis(Canvas canvas) {
         canvasWidth -= 140f;        //留有边距
@@ -104,6 +108,7 @@ public class LineChart extends AbstractChartService {
         canvas.drawLine(0, 0, 0,-canvasHeight, paint);  // 绘制 y 轴
     }
 
+    //绘制坐标值及刻度
     @Override
     public void drawCoordinates(Canvas canvas) {
         String number;
@@ -171,6 +176,7 @@ public class LineChart extends AbstractChartService {
         canvas.restore();   // 使画布返回上一个状态
     }
 
+    //绘制曲线
     @Override
     public void drawAction(Canvas canvas) {
         // 裁切矩形，把画面控制在坐标平面内
@@ -221,6 +227,7 @@ public class LineChart extends AbstractChartService {
         initPaints();   //画笔reset
     }
 
+    //绘制
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -252,6 +259,7 @@ public class LineChart extends AbstractChartService {
         }
     }
 
+    //擦出某条线
     @Override
     public void setLineRemove(int line) {
         for (int i = 0;i<showIDs.size();i++){
@@ -262,6 +270,7 @@ public class LineChart extends AbstractChartService {
         }
     }
 
+    //恢复某条线
     @Override
     public void setLineRecover(int line) {
         if (showIDs.size()<1) return;
@@ -279,6 +288,7 @@ public class LineChart extends AbstractChartService {
         invalidate();  //重绘
     }
 
+    //清表
     @Override
     public void cleanChart() {
         xDistance = (float) 0.2;

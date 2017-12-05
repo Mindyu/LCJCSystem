@@ -32,28 +32,28 @@ import java.util.Map;
 
 public class CalibrationDataImportActivity extends Activity implements PhoneListItemAdapter.MyClickListener,ListItemAdapter.MyClickListener{
 
-    private ImageView finish;           //返回按钮
+    private ImageView finish;                    //返回按钮
     private TextView select_tv;
 
     List<DeviceDetectionRecordBean> calibrationDataList = DeviceDetectionRecordDao.getInstance().queryAllByID();
 
-    private ScrollListView mData;       //表格内数据
+    private ScrollListView mData;                //表格内数据
     private PhoneListItemAdapter mDataAdapter;   //数据区滑动适配器
     private ListItemAdapter adapter;
 
-    private HoriScrollView mHeaderHorizontal;   //列标题栏
-    private HoriScrollView mDataHorizontal;     //数据区
+    private HoriScrollView mHeaderHorizontal;    //列标题栏
+    private HoriScrollView mDataHorizontal;      //数据区
 
     private ScrollView mScrollView;
     private ArrayList<Map<String,Object>> list;
     private ListView listListView;
-    private long mClickTime = 0;   //点击时间
+    private long mClickTime = 0;                 //点击时间
 
     private int position;
-    private boolean selected;//判断RadioButton是否被选中
+    private boolean selected;                    //判断RadioButton是否被选中
 
-    private float x1 = 0,x2 = 0;//空白区滑动坐标标记
-    private int firstClickId = -1;//双击事件第一次点击id记录
+    private float x1 = 0,x2 = 0;                 //空白区滑动坐标标记
+    private int firstClickId = -1;               //双击事件第一次点击id记录
     private int clickedNum = 0;
 
     @Override

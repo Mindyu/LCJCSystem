@@ -119,13 +119,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 m_vFragmentDataMeasure.scanView.postInvalidate();
                 m_vSecondFragmentDataMeasure.chartView_1.postInvalidate();
                 m_vSecondFragmentDataMeasure.chartView_2.postInvalidate();
-            } else if (msg.what == 3) {         //刷新历史纪录列表的Handler
+            } else if (msg.what == 3) {           //刷新历史纪录列表的Handler
                 Bundle bundle = msg.getData();
                 String year = bundle.getString("year");
                 String month = bundle.getString("month");
                 String day = bundle.getString("day");
                 m_vFragmentHistoryData.refreshListView(year, month, day);
-            } else if (msg.what == 4) {          //暂停处理
+            } else if (msg.what == 4) {           //暂停处理
 
             }
         }
@@ -144,15 +144,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             quadratic_1.setParameter(DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getValue_a(), DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getValue_b(), 0);
             quadratic_2.setParameter(DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getValue_c(), DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getValue_d(), DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getValue_e());
             double tempValue, flaw;
-            double dividingLine = quadratic_1.argTOdep(40);     //获取缺陷比为40%所对应的y值
-//            Log.d("dividing", String.valueOf(dividingLine));
+            double dividingLine = quadratic_1.argTOdep(40);                         //获取缺陷比为40%所对应的y值
             for (int i = 0; i < ThreadParameter.getInstance().xList.size(); i++) {
                 for (int j = 0; j < SystemParameter.getInstance().nChannelNumber; j++) {
                     tempValue = ThreadParameter.getInstance().denoisingValue.get(j).get(i);
                     if (tempValue < 0) {
-                        ThreadParameter.getInstance().flawValue.get(j).add(0.0);   //去噪值小于0的时候直接赋百分比为0
+                        ThreadParameter.getInstance().flawValue.get(j).add(0.0);    //去噪值小于0的时候直接赋百分比为0
                     } else if (tempValue <= dividingLine) {
-                        flaw = quadratic_1.depTOarg(tempValue);    //计算缺陷值所对应的百分比
+                        flaw = quadratic_1.depTOarg(tempValue);                     //计算缺陷值所对应的百分比
                         ThreadParameter.getInstance().flawValue.get(j).add(flaw);
                     } else {
                         flaw = quadratic_2.depTOarg(tempValue);
@@ -166,7 +165,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             m_vSecondFragmentDataMeasure.chartView_2.drawView(ThreadParameter.getInstance().xList, ThreadParameter.getInstance().gradientValue);     //横向梯度折线图
             if (ifIsStopState) {
                 HandleStopThread handleStopThread = new HandleStopThread(handler);
-                handleStopThread.start();       //启动停止处理线程，将数据保存起来
+                handleStopThread.start();                                           //启动停止处理线程，将数据保存起来
             }
             Message msg = new Message();
             msg.what = 2;
@@ -177,20 +176,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        设置手机通知栏样式
+        //设置手机通知栏样式
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
-//        去标题
+        //去标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        锁定竖屏
+        //锁定竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_mian_fragment);
-        /*//设置屏幕常亮
-        //**********方法修改为 在当前布局文件中，随便给一个UI组件设置:android:keepScreenOn="true"
-        PowerManager pm = (PowerManager) getSystemService(POWER_SERVICE);
-        wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "==KeepScreenOn==");
-        wakeLock.acquire();*/
         //为广播接收器创建过滤器
         IntentFilter filter = new IntentFilter();
         filter.addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED);
@@ -198,9 +192,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         filter.setPriority(500);
         //注册广播接收器
         this.registerReceiver(mUsbReceiver, filter);
-        initViews();//初始化控件
-        initDatas();//初始化数据
-        initEvents();//初始化事件
+        initViews();    //初始化控件
+        initDatas();    //初始化数据
+        initEvents();   //初始化事件
     }
 
     //初始化控件
@@ -269,13 +263,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         m_vViewPager.setAdapter(m_vFmAdapter);
         m_vViewPager.setOffscreenPageLimit(1);//设置加载Fragment数，默认是1，当前及左右的Fragment，设置为2，即每个都重新加载
         //设置ViewPager的切换监听
-        //***********显示方法过时过时将setOnPageChangeListener转为addOnPageChangeListener
         m_vViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             //页面滚动事件
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
             //页面选中事件
             @Override
             public void onPageSelected(int position) {
@@ -344,9 +335,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 } else {
                     m_vFragmentDataMeasure.chartView.resetAxis();
                     m_vFragmentDataMeasure.scanView.resetAxis();
-                    if (Math.abs(m_vFragmentDataMeasure.chartView.getxDistance()- 0.1) < 0.0001 &&
-                            Math.abs(m_vFragmentDataMeasure.chartView.getxDistance() - 300) < 0.0001 &&
-                            Math.abs(m_vFragmentDataMeasure.chartView.getY()) < 0.0001) {
+                    if (m_vFragmentDataMeasure.chartView.isNone()) {
                         Toast.makeText(MainActivity.this, "请先选择一组数据", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -511,23 +500,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                         ifFirstStart = false;
                         ifClickIsStart = false;
                         ifIsStopState = false;
-//                        Log.d("data",String.valueOf(serialPortOpe.getMeasureData()));
                     }
                 } else {
-                    if (ifClickIsStart) {     //按下开始
+                    if (ifClickIsStart) {           //按下开始, 继续开始测量
                         myDialog.show();
                         ReadDataThread.isPause = false;
                         btnStart.setImageResource(R.drawable.btn_suspend_normal);
                         ifClickIsStart = false;
-                    } else {          //按下暂停
+                    } else {                        //按下暂停
                         ReadDataThread.isPause = true;
-                        btnStart.setImageResource(R.drawable.start_normal);   //开始
+                        btnStart.setImageResource(R.drawable.start_normal);
                         ifClickIsStart = true;
                         //绘制图线线程
                         new Thread(new MyThread()).start();
                         //弹框显示是否继续测量
-                        //系统默认的AlertDialog
-//                        showMultiBtnDialog();
                         DecimalFormat df = new DecimalFormat("#0.0000");
                         double leng = ThreadParameter.getInstance().xList.get(ThreadParameter.getInstance().xList.size()-1);
                         String text = "已测量"+ df.format(leng) +"m距离";
@@ -547,14 +533,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 btnStart.setImageResource(R.drawable.start_normal);
                 btnStop.setEnabled(false);
                 btnStop.setImageResource(R.drawable.stop_select);
-                btnClean.setEnabled(true);             //停止后可以点击清屏
+                btnClean.setEnabled(true);                              //停止后可以点击清屏
                 btnClean.setImageResource(R.drawable.clean_normal);
-                menu.setEnabled(true);              //停止后菜单变为可以点击
-                m_vTabHistoryDt.setEnabled(true);   //停止后历史数据可点击
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag = false;     //停止线程
-                //绘制图线线程
-                new Thread(new MyThread()).start();
+                menu.setEnabled(true);                                  //停止后菜单变为可以点击
+                m_vTabHistoryDt.setEnabled(true);                       //停止后历史数据可点击
+                serialPortOpe.stopReciveData();                         //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag = false;       //停止线程
+                new Thread(new MyThread()).start();                     //绘制图线线程
             }
         });
 
@@ -582,7 +567,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         switch (v.getId()) {
             case R.id.id_tab_datameasure:
                 findViewById(R.id.id_viewpager).setVisibility(View.VISIBLE);
-                m_vViewPager.setCurrentItem(0, false);         //设置显示第一个Fragment
+                m_vViewPager.setCurrentItem(0, false);              //设置显示第一个Fragment
                 m_vImgDtMeasure.setImageResource(R.drawable.btn_magnetic_measurement_selected);
                 m_vImgHistoryDt.setImageResource(R.drawable.btn_history_normal);
                 findViewById(R.id.activity_main_bottom).setVisibility(View.VISIBLE);
@@ -595,7 +580,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 transaction.commit();
                 m_vImgDtMeasure.setImageResource(R.drawable.btn_magnetic_measurement_normal);
                 m_vImgHistoryDt.setImageResource(R.drawable.btn_history_selected);
-                findViewById(R.id.activity_main_bottom).setVisibility(View.GONE);//设置Activity下面的三个按钮再此Fragment中不显示
+                findViewById(R.id.activity_main_bottom).setVisibility(View.GONE);   //设置Activity下面的三个按钮再此Fragment中不显示
                 break;
         }
     }
@@ -618,11 +603,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             String action = intent.getAction();
             if (UsbManager.ACTION_USB_ACCESSORY_ATTACHED.equals(action)) {
                 Toast.makeText(MainActivity.this, "设备已接入", Toast.LENGTH_LONG).show();
-                serialPortOpe.createDeviceList();//更新设备数
+                serialPortOpe.createDeviceList();   //更新设备数
             }
             if (UsbManager.ACTION_USB_DEVICE_DETACHED.equals(action)) {
                 Toast.makeText(MainActivity.this, "设备已拔出", Toast.LENGTH_LONG).show();
-                handleDetached();//测量中途拔出设备的处理函数
+                handleDetached();                   //测量中途拔出设备的处理函数
             }
         }
     };
@@ -631,7 +616,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     public void onDestroy() {
         super.onDestroy();
         FileHelper.close();
-        this.unregisterReceiver(mUsbReceiver);//注销广播接收器
+        this.unregisterReceiver(mUsbReceiver);      //注销广播接收器
     }
 
     //拔掉设备后的处理函数
@@ -691,14 +676,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 btnStart.setImageResource(R.drawable.start_normal);
                 btnStop.setEnabled(false);
                 btnStop.setImageResource(R.drawable.stop_select);
-                btnClean.setEnabled(true);             //停止后可以点击清屏
+                btnClean.setEnabled(true);                              //停止后可以点击清屏
                 btnClean.setImageResource(R.drawable.clean_normal);
-                menu.setEnabled(true);              //停止后菜单变为可以点击
-                m_vTabHistoryDt.setEnabled(true);   //停止后历史数据可点击
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag = false;     //停止线程
+                menu.setEnabled(true);                                  //停止后菜单变为可以点击
+                m_vTabHistoryDt.setEnabled(true);                       //停止后历史数据可点击
+                serialPortOpe.stopReciveData();                         //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag = false;       //停止线程
                 HandleStopThread handleStopThread = new HandleStopThread(handler);
-                handleStopThread.start();       //启动停止处理线程，将数据保存起来
+                handleStopThread.start();                               //启动停止处理线程，将数据保存起来
             }
         });
         normalDialog.setPositiveButton("取消", new DialogInterface.OnClickListener() {
@@ -711,16 +696,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 btnStart.setImageResource(R.drawable.start_normal);
                 btnStop.setEnabled(false);
                 btnStop.setImageResource(R.drawable.stop_select);
-                btnClean.setEnabled(true);             //停止后可以点击清屏
+                btnClean.setEnabled(true);                              //停止后可以点击清屏
                 btnClean.setImageResource(R.drawable.clean_normal);
-                menu.setEnabled(true);              //停止后菜单变为可以点击
-                m_vTabHistoryDt.setEnabled(true);   //停止后历史数据可点击
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag = false;     //停止线程
+                menu.setEnabled(true);                                  //停止后菜单变为可以点击
+                m_vTabHistoryDt.setEnabled(true);                       //停止后历史数据可点击
+                serialPortOpe.stopReciveData();                         //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag = false;       //停止线程
             }
         });
-        // 创建实例并显示
-        normalDialog.show();
+        normalDialog.show();                                            // 创建实例并显示
     }
 
     public void showCustomDialog(String text){
@@ -740,14 +724,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 btnStart.setImageResource(R.drawable.start_normal);
                 btnStop.setEnabled(false);
                 btnStop.setImageResource(R.drawable.stop_select);
-                btnClean.setEnabled(true);             //停止后可以点击清屏
+                btnClean.setEnabled(true);                              //停止后可以点击清屏
                 btnClean.setImageResource(R.drawable.clean_normal);
-                menu.setEnabled(true);              //停止后菜单变为可以点击
-                m_vTabHistoryDt.setEnabled(true);   //停止后历史数据可点击
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag = false;     //停止线程
+                menu.setEnabled(true);                                  //停止后菜单变为可以点击
+                m_vTabHistoryDt.setEnabled(true);                       //停止后历史数据可点击
+                serialPortOpe.stopReciveData();                         //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag = false;       //停止线程
                 HandleStopThread handleStopThread = new HandleStopThread(handler);
-                handleStopThread.start();       //启动停止处理线程，将数据保存起来
+                handleStopThread.start();                               //启动停止处理线程，将数据保存起来
             }
 
             @Override
@@ -759,12 +743,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 btnStart.setImageResource(R.drawable.start_normal);
                 btnStop.setEnabled(false);
                 btnStop.setImageResource(R.drawable.stop_select);
-                btnClean.setEnabled(true);             //停止后可以点击清屏
+                btnClean.setEnabled(true);                             //停止后可以点击清屏
                 btnClean.setImageResource(R.drawable.clean_normal);
-                menu.setEnabled(true);              //停止后菜单变为可以点击
-                m_vTabHistoryDt.setEnabled(true);   //停止后历史数据可点击
-                serialPortOpe.stopReciveData();    //停止接收数据，关闭设备
-                ThreadParameter.getInstance().threadFlag = false;     //停止线程
+                menu.setEnabled(true);                                  //停止后菜单变为可以点击
+                m_vTabHistoryDt.setEnabled(true);                       //停止后历史数据可点击
+                serialPortOpe.stopReciveData();                         //停止接收数据，关闭设备
+                ThreadParameter.getInstance().threadFlag = false;       //停止线程
             }
         });
         mainDialog.show();

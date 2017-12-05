@@ -6,24 +6,24 @@ import org.litepal.crud.DataSupport;
  *  系统信息
  */
 public class DeviceInfoBean extends DataSupport {
-    private long deviceID;// 设备ID
-    private String deviceName;// 设备名称
-    private int channelCount;// 通道数量
-    private int channelWeight;// 通道分量
-    private int channelDistance;// 通道间距
-    private int stepInterval;   //横向梯度步数间隔
-    private double stepDistance;// 步长
-    private String releaseDate;//出厂日期
-    private String saleDate;//出售日期
-    private String hardwareVersion;//硬件版本
-    private String softwareVersion;//软件版本
-    private double deviceWidth;//设备宽度
-    private double deviceLength;//设备长度
-    private double deviceTailDeadZoneLength;//设备后端盲区长度
-    private double deviceHeadDeadZoneLength;//设备前端盲区长度
-    private double deviceWeight;//设备重量
-    private String servicePhone;//服务电话
-    private String note;// 备注
+    private long deviceID;                  // 设备ID
+    private String deviceName;              // 设备名称
+    private int channelCount;               // 通道数量
+    private int channelWeight;              // 通道分量
+    private int channelDistance;            // 通道间距
+    private int stepInterval;               //横向梯度步数间隔
+    private double stepDistance;            // 步长
+    private String releaseDate;             // 出厂日期
+    private String saleDate;                // 出售日期
+    private String hardwareVersion;         // 硬件版本
+    private String softwareVersion;         // 软件版本
+    private double deviceWidth;             // 设备宽度
+    private double deviceLength;            // 设备长度
+    private double deviceTailDeadZoneLength;// 设备后端盲区长度
+    private double deviceHeadDeadZoneLength;// 设备前端盲区长度
+    private double deviceWeight;            // 设备重量
+    private String servicePhone;            // 服务电话
+    private String note;                    // 备注
 
     public long getDeviceID() {
         return deviceID;

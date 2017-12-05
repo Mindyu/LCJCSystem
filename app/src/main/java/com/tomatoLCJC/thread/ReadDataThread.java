@@ -18,17 +18,17 @@ public class ReadDataThread implements Runnable {
     public static boolean isPause = false;
 
     public ReadDataThread(Context parentContext) {
-        threadParameter = ThreadParameter.getInstance();              //获取线程参数类的对象
-        serialPortOpe = SerialPortOpe.getInstance(parentContext);      //获取设备操作类的对象
+        threadParameter = ThreadParameter.getInstance();                //获取线程参数类的对象
+        serialPortOpe = SerialPortOpe.getInstance(parentContext);       //获取设备操作类的对象
     }
 
     @Override
     public void run() {
         int index = 0;
-        int size = SystemParameter.getInstance().nChannelNumber + 2;   //通道数加位移判断标记
+        int size = SystemParameter.getInstance().nChannelNumber + 2;    //通道数加位移判断标记
         while (threadParameter.threadFlag) {
             if (!isPause) {      //如果未暂停
-                byte[] data = serialPortOpe.getMeasureData();         //读取长度最大为ThreadParameter.getInstance().nReadSizeWords的一个byte[]
+                byte[] data = serialPortOpe.getMeasureData();           //读取长度最大为ThreadParameter.getInstance().nReadSizeWords的一个byte[]
                 if (data == null || data.length == 0) {
                     continue;
                 }
@@ -48,7 +48,7 @@ public class ReadDataThread implements Runnable {
                             threadParameter.bNewSegmentData[index++] = true;           //对应的标志改为true
                             index %= threadParameter.MAX_SEGMENT;
                         }
-                        i += (CURRENT_MAX_CHANEEL * 2 - 1);   //如果满足 i跳到下一个标记   需要减1，循环里面有i++
+                        i += (CURRENT_MAX_CHANEEL * 2 - 1);     //如果满足 i跳到下一个标记   需要减1，循环里面有i++
                     }
                 }
             }

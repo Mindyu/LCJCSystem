@@ -37,26 +37,26 @@ import java.util.Map;
  */
 public class FragmentHistoryData extends Fragment {
 
-    private ListView listview;      //历史数记录列表
-    private DialogSpinner spYear;   //年
-    private DialogSpinner spMonth;  //月
-    private DialogSpinner spDay;    //日
+    private ListView listview;              // 历史数记录列表
+    private DialogSpinner spYear;           // 年
+    private DialogSpinner spMonth;          // 月
+    private DialogSpinner spDay;            // 日
     private ProgressDialog myDialog;
     private ArrayList<String> yearList = new ArrayList<String>();
     private ArrayList<String> monthList = new ArrayList<String>();
     private ArrayList<String> dayList = new ArrayList<String>();
 
-    MyAdapter adapter;//历史纪录ListView的适配器
-    private ArrayAdapter<String> adapterDay;//日期弹出框的适配器
+    MyAdapter adapter;                      // 历史纪录ListView的适配器
+    private ArrayAdapter<String> adapterDay;// 日期弹出框的适配器
 
     private String year_num = null;
     private String month_num = null;
     private String day_num = "——";
 
-    private List<String> list = new ArrayList<>();  //所有数据
+    private List<String> list = new ArrayList<>();          // 所有数据
     public static ArrayList<HistoryDataRecordBean> recordList = new ArrayList<>();
-    public static List<String> title = new ArrayList<String>(); //每组数据日期(标题)
-    private long record_id;     //历史数据记录的ID
+    public static List<String> title = new ArrayList<String>();  // 每组数据日期(标题)
+    private long record_id;                                 // 历史数据记录的ID
 
 
     //以下成员变量是异步任务时用到的
@@ -77,9 +77,9 @@ public class FragmentHistoryData extends Fragment {
             float waringValue =bundle.getFloat("warn");
             MainActivity mainActivity = (MainActivity) getActivity();
             mainActivity.showChart(xList.get(0),yList, detectionValue, gradientValue, denoisingValue,flawValue, recordTitle, channelNum );//datameasure页面图表更新，这里应当重新初始化按钮数量和图表
-            mainActivity.jumpToFirstFragment();  //跳转至FragmentDateMeasure页面
+            mainActivity.jumpToFirstFragment();             // 跳转至FragmentDateMeasure页面
             ImageButton btnClean = (ImageButton) getActivity().findViewById(R.id.btnClean);
-            btnClean.setEnabled(true);          //设置清屏可点击
+            btnClean.setEnabled(true);                      // 设置清屏可点击
             btnClean.setImageResource(R.drawable.clean_normal);
             xList = null;
             yList = null;
@@ -108,12 +108,12 @@ public class FragmentHistoryData extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 recordTitle = (String) ((TextView) view.findViewById(R.id.record_Id)).getText();//获得点击那行记录的标题
                 if((recordTitle.substring(4,5)).equals("年")) {
-                    //如果是年月日的标题则不响应点击事件
+                    // 如果是年月日的标题则不响应点击事件
                 } else{
                     String title = recordTitle.replaceAll(" |-|:", "");
                     if (!title.equals("没有数据！")) {
                         record_id = HistoryDataRecordDao.getInstance().queryIdByTitle(title);
-                        queryAndProcessData();//从数据库取出并处理数据，然后通知UI线程画图
+                        queryAndProcessData();      // 从数据库取出并处理数据，然后通知UI线程画图
                     }
                 }
             }
@@ -158,7 +158,7 @@ public class FragmentHistoryData extends Fragment {
         if(month_num == null) {
             month_num = month;
         }
-        initData(year_num,month_num,day_num);//由日期初始化数据（2017，06，05）
+        initData(year_num,month_num,day_num);       // 由日期初始化数据（2017，06，05）
         spYear.setYear_number(year_num);
         spYear.setText(year_num);
         spMonth.setMonth_number(month_num);
@@ -181,7 +181,7 @@ public class FragmentHistoryData extends Fragment {
         }else {
             for (int i = 0; i < recordList.size(); i++) {
                 if(!list.contains(title.get(i))) {
-                    list.add(title.get(i));//防止标题重复插入(这里的标题形式为2017年6月（5日）)
+                    list.add(title.get(i));          // 防止标题重复插入(这里的标题形式为2017年6月（5日）)
                 }
                 recordTitle = recordList.get(i).getTitle();
                 displayTitle = recordTitle.substring(0, 4)+"-"+recordTitle.substring(4,6)+"-"+recordTitle.substring(6, 8) +" "+ recordTitle.substring(8, 10)+":" + recordTitle.substring(10, 12) +":"+ recordTitle.substring(12, 14) +":"+ recordTitle.substring(14, 16);
@@ -192,7 +192,7 @@ public class FragmentHistoryData extends Fragment {
             for(int i=0;i<size;i++){
                 strs[i]=tempList.get(i);
             }
-            Arrays.sort(strs);//根据标题（时间）排序
+            Arrays.sort(strs);                      // 根据标题（时间）排序
             for(int i=size-1;i>=0;i--){
                 list.add(strs[i]);
             }
@@ -276,10 +276,10 @@ public class FragmentHistoryData extends Fragment {
         @Override
         protected Integer doInBackground(Void... params) {
             HistoryDataRecordBean hisBean = HistoryDataRecordDao.getInstance().queryBeanByID(record_id);
-            int channelNum = hisBean.getChannelCount();//获得记录的通道数量
-            int stepInterval = 1;          //=hisBean.ge();//获得记录的横向步数间隔
-            double stepDistance=hisBean.getStepDistance();//获得记录的步长
-            int distance =hisBean.getChannelInterval();//获得记录的通道间距
+            int channelNum = hisBean.getChannelCount();         // 获得记录的通道数量
+            int stepInterval = 1;                               // 获得记录的横向步数间隔
+            double stepDistance=hisBean.getStepDistance();      // 获得记录的步长
+            int distance =hisBean.getChannelInterval();         // 获得记录的通道间距
             if(channelNum == 0){
                 System.out.println("查询失败");
                 return -1;
@@ -287,10 +287,10 @@ public class FragmentHistoryData extends Fragment {
             Map<String, ArrayList<ArrayList<Double>>> map = HistoryDataRecordDao.getInstance().queryRecordDetailByRecordID(record_id,channelNum);//由记录编号查询明细表中的数据
             xList = map.get("X");
             yList = map.get("Y");
-            detectionValue = map.get("DV");     //检测数据
-            gradientValue= new ArrayList<>();   //横向梯度
-            denoisingValue =map.get("DSV");   //去噪值
-            flawValue = map.get("FV"); //缺陷值
+            detectionValue = map.get("DV");                     // 检测数据
+            gradientValue= new ArrayList<>();                   // 横向梯度
+            denoisingValue =map.get("DSV");                     // 去噪值
+            flawValue = map.get("FV");                          // 缺陷值
             for(int i=0;i<channelNum;i++){
                 gradientValue.add(new ArrayList<Double>());
             }
@@ -315,7 +315,7 @@ public class FragmentHistoryData extends Fragment {
                         gradientValue.get(i).add(value);
                         temp = value;
                     }
-                    gradientValue.get(i).add(temp);//取前一组的数据
+                    gradientValue.get(i).add(temp);     // 取前一组的数据
                 }
             }
 

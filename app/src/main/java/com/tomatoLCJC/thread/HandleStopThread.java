@@ -35,15 +35,15 @@ public class HandleStopThread extends Thread {
             SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmssSS");
             String title = sdf.format(date);
             dataRecordBean.setCalibrationID(DeviceDetectionRecordDao.getInstance().getStatusIsZeroBean().getId());
-            dataRecordBean.setTitle(title);//设置标题(过滤时通过标题)
+            dataRecordBean.setTitle(title);                                                     // 设置标题(过滤时通过标题)
             SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyMMdd");
             String detectionTime = sdf1.format(date);
-            dataRecordBean.setDetectionTime(detectionTime);//设置检测时间
-            dataRecordBean.setChannelCount(SystemParameter.getInstance().nChannelNumber);//设置通道数
-            dataRecordBean.setChannelWeight(SystemParameter.getInstance().channelWeight);//设置通道分量
-            dataRecordBean.setChannelDistance(SystemParameter.getInstance().nChannelDistance);//设置通道间距
-            dataRecordBean.setStepDistance(SystemParameter.getInstance().disSensorStepLen);//设置步长
-            dataRecordBean.setStepInterval(SystemParameter.getInstance().nStepInterval);//设置横向梯度步数间隔
+            dataRecordBean.setDetectionTime(detectionTime);                                     // 设置检测时间
+            dataRecordBean.setChannelCount(SystemParameter.getInstance().nChannelNumber);       // 设置通道数
+            dataRecordBean.setChannelWeight(SystemParameter.getInstance().channelWeight);       // 设置通道分量
+            dataRecordBean.setChannelDistance(SystemParameter.getInstance().nChannelDistance);  // 设置通道间距
+            dataRecordBean.setStepDistance(SystemParameter.getInstance().disSensorStepLen);     // 设置步长
+            dataRecordBean.setStepInterval(SystemParameter.getInstance().nStepInterval);        // 设置横向梯度步数间隔
             //缺少最大缺陷值最大缺陷值
             if (ThreadParameter.getInstance().denoisingValue.get(0).size()!=ThreadParameter.getInstance().detectionValue.get(0).size()){
                 ThreadParameter.getInstance().denoisingValue = WaveletProcess.DenoisingCheckData(ThreadParameter.getInstance().detectionValue.get(0).size(),SystemParameter.getInstance().nChannelNumber,ThreadParameter.getInstance().detectionValue,1);

@@ -24,9 +24,9 @@ public abstract class AbstractChartService extends View {
     protected List<Float> xList = new ArrayList<>();             // 检测图中矩形左上角的坐标
     protected List<ArrayList<Float>> yList = new ArrayList<>();  // 检测图中矩形左上角的坐标
 
-    protected float xDistance;       // x 方向总距离
-    protected float yDistance;       // y 方向总距离
-    protected float xStart=0, yStart=0;  // 起始点坐标
+    protected float xDistance;              // x 方向总距离
+    protected float yDistance;              // y 方向总距离
+    protected float xStart=0, yStart=0;     // 起始点坐标
 
     protected float canvasWidth, canvasHeight;  // 画布宽度和高度
     protected Paint paint;                      // 画笔
@@ -35,10 +35,10 @@ public abstract class AbstractChartService extends View {
     public AbstractChartService(Context context) {
         super(context);
     }
-    public abstract void initPaints();                      //初始化画笔
-    public abstract void drawAxis(Canvas canvas);           //初始化坐标轴
-    public abstract void drawCoordinates(Canvas canvas);    //绘制刻度
-    public abstract void drawAction(Canvas canvas);
+    public abstract void initPaints();                      // 初始化画笔
+    public abstract void drawAxis(Canvas canvas);           // 初始化坐标轴
+    public abstract void drawCoordinates(Canvas canvas);    // 绘制刻度
+    public abstract void drawAction(Canvas canvas);         // 绘制相应图线
     public abstract void Double2Float(List<Double> xs, List<ArrayList<Double>> ys,List<ArrayList<Double>> zs);
     public abstract void setLineRemove(int line);
     public abstract void setLineRecover(int line);
@@ -161,5 +161,9 @@ public abstract class AbstractChartService extends View {
     }
     public void setCanvasHeight(float canvasHeight) {
         this.canvasHeight = canvasHeight;
+    }
+    public boolean isNone() {
+        if (showIDs.size()==0||showIDs!=null) return true;
+        return false;
     }
 }

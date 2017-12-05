@@ -5,18 +5,18 @@ import org.litepal.crud.DataSupport;
  *  历史数据记录
  */
 public class HistoryDataRecordBean extends DataSupport {
-    private long id;// 编号
-    private String title;//标题
-    private String detectionTime;// 检测时间
-    private String detectionMan;// 检测员
-    private int channelCount;// 通道数量
-    private int channelWeight;// 通道分量
-    private double stepDistance;// 步长
-    private int stepInterval; //横向梯度步数间隔
-    private int channelInterval;// 通道间距
-    private long calibrationID;//校准编号
-    private double maxFlawValue;//最大缺陷值
-    private String note;// 备注
+    private long id;                    // 编号
+    private String title;               // 标题
+    private String detectionTime;       // 检测时间
+    private String detectionMan;        // 检测员
+    private int channelCount;           // 通道数量
+    private int channelWeight;          // 通道分量
+    private double stepDistance;        // 步长
+    private int stepInterval;           // 横向梯度步数间隔
+    private int channelInterval;        // 通道间距
+    private long calibrationID;         // 校准编号
+    private double maxFlawValue;        // 最大缺陷值
+    private String note;                // 备注
 
     public long getId() {
         return id;

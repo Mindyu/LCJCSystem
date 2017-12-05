@@ -28,13 +28,13 @@ public class DeviceDetectionRecordDao {
     private List<Method> setDefectMethodYList = new ArrayList<>();
     //生成单例
     private static DeviceDetectionRecordDao deviceDetectionRecordDao = null;
-    private DeviceDetectionRecordDao() {    //构造函数，先把数据库中的数据取出来
+    private DeviceDetectionRecordDao() {                            //构造函数，先把数据库中的数据取出来
         LitePal.getDatabase();
         try {
             Class<?> CDR_class = DeviceDetectionRecordBean.class;
             for (int i = 1; i <= 4; i++) {
                 Method setDefectPercent = CDR_class.getMethod(
-                        "setDefectPercent"+i, double.class);//这里注意不能写成Double.class（不支持自动拆箱）
+                        "setDefectPercent"+i, double.class);        //这里注意不能写成Double.class（不支持自动拆箱）
                 Method setDefectPercent_x= CDR_class.getMethod(
                         "setDefectPercent"+i+"_x", double.class);
                 Method setDefectPercent_value = CDR_class.getMethod(
@@ -62,7 +62,7 @@ public class DeviceDetectionRecordDao {
     public DeviceDetectionRecordBean getStatusIsZeroBean(){
         DeviceDetectionRecordBean bean = DataSupport
                 .where("status == ?", String.valueOf(0))
-                .find(DeviceDetectionRecordBean.class).get(0);   //状态为0的记录只有一条
+                .find(DeviceDetectionRecordBean.class).get(0);      //状态为0的记录只有一条
         return bean;
     }
 
@@ -86,9 +86,9 @@ public class DeviceDetectionRecordDao {
             chanDeteRecordBean.setChannelDistance(1);
             chanDeteRecordBean.setStepDistance(0.942);
             chanDeteRecordBean.setSteelTexture("材质");
-            chanDeteRecordBean.setSteelThickness(10.0);   //钢管厚度
-            chanDeteRecordBean.setUpliftValue(9);         //提离值
-            chanDeteRecordBean.setDefectThreshold(2);         //缺陷阈值
+            chanDeteRecordBean.setSteelThickness(10.0);         //钢管厚度
+            chanDeteRecordBean.setUpliftValue(9);               //提离值
+            chanDeteRecordBean.setDefectThreshold(2);           //缺陷阈值
             chanDeteRecordBean.setStatus(0);
             chanDeteRecordBean.setNote("在用");
             chanDeteRecordBean.setDefectPercent1(20);

@@ -10,15 +10,15 @@ import org.litepal.crud.DataSupport;
  * 历史数据记录明细
  */
 public class HistoryDataRecordDetailBean extends DataSupport {
-    private long id;// 编号
-    private long recordId;//历史记录编号
-    private long chaneelID;//通道ID
-    private String detectionTime;//检测时间
+    private long id;                        // 编号
+    private long recordId;                  // 历史记录编号
+    private long chaneelID;                 // 通道ID
+    private String detectionTime;           // 检测时间
     private double value_x;
     private double value_y;
-    private double detectionValue;//检测值
-    private double denoisingValue;//去噪值
-    private double flawValue;//缺陷值
+    private double detectionValue;          // 检测值
+    private double denoisingValue;          // 去噪值
+    private double flawValue;               // 缺陷值
 
     public long getId() {
         return id;
